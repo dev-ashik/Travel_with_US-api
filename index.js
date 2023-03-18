@@ -14,7 +14,6 @@ const BookingsModel = require("./models/Booking");
 require("dotenv").config();
 
 const app = express();
-const port = 5000;
 
 const beryptSalt = bcrypt.genSaltSync(10);
 const jwtsecret = "dfsoiiuiuui";
@@ -218,6 +217,7 @@ app.get('/bookings', async (req, res) => {
   res.json(bookingsData);
 })
 
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
